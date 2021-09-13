@@ -1,0 +1,161 @@
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Chiva Webshop</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&family=Yusei+Magic&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cute+Font&family=Londrina+Shadow&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&family=Ubuntu&family=Yusei+Magic&display=swap"
+        rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- This section includes the navbar its links, logo, and cart icon-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <div class="row">
+            <div class="navbar-brand col-2">
+                <img id="C-logo" href="#title-background"
+                    src="https://res.cloudinary.com/dq2ki7aym/image/upload/v1620772649/New%20project/chiva_white_i8shwq.png">
+            </div> 
+            <form class="d-flex col-8">
+                <input class="form-control me-2 w-5" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+            
+            <div id="cart-icon" class="col-2"><a id="btnCart"><img
+                src="https://res.cloudinary.com/dq2ki7aym/image/upload/v1620772651/New%20project/shopping-cart-svgrepo-com_a1qxsq.svg"></a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    
+    <!-- This section contains the main cover photo within main-cover and the page title within concept-shop
+upon adding products to cart, cart is added as a side div to this section-->
+    <section class="container-fluid" id="landing">
+        <div id="CartSide" style="display:none"> </div>
+        <div class="concept-shop">
+            <h1 class="display-1">Coolest<br>
+                products,<br>
+                <small class="text-muted">best <br>
+                    prices!</small>
+            </h1>
+
+        </div>
+        <div class="main-cover">
+
+
+        </div>
+
+    </section>
+    <!-- This section contains the product categories links seperated with three divs-->
+    <section id="categories">
+        <div class="category-title">
+            <h2>Select a category:</h2>
+        </div>
+        <div class="close">
+            <a id="close-category"></a>
+        </div>
+    </section>
+    <div id="sort-options-container">
+
+
+    </div>
+    <section>
+        <!-- upon clicking on the categories the products will be loaded within the following div-->
+        <div id="product-container" class= "d-flex gap-3 row">
+
+        </div>
+    </section>
+    <!-- This section contains the About us paragraph and photos-->
+    <section class="About-us" id="about-us">
+
+        <div class="text-container">
+            <h2>About</h2>
+            <p class="paragaraph">A fascinating collection of  </p>
+
+        </div>
+        <div class="photo1">
+            <img src="https://res.cloudinary.com/dq2ki7aym/image/upload/v1620772649/New%20project/frank_lloyd_nkgxnb.jpg"
+                alt="">
+        </div>
+        <div class="photo2">
+            <img src="https://res.cloudinary.com/dq2ki7aym/image/upload/v1620772650/New%20project/Joanna_Gaines_lqclnn.jpg"
+                alt="">
+        </div>
+
+    </section>
+
+    <!-- This section contains features show case contained within three divs-->
+    <div id="Features-section"></div>
+    <section class="Features-all">
+
+        <div class="Features">
+            <img
+                src="https://res.cloudinary.com/dq2ki7aym/image/upload/v1620772649/New%20project/fast-delivery_nij4ad.png">
+            <h2>Fast Delivery</h2>
+            <ul class="options-list">
+                <li>Delivery within 24 hours</li>
+            </ul>
+        </div>
+        <div class="Features">
+            <img
+                src="https://res.cloudinary.com/dq2ki7aym/image/upload/v1620772650/New%20project/logo-premium-png-1_hc0rwv.png">
+            <h2>Best Material</h2>
+            <ul class="options-list">
+                <li>Produced from the most authentic material</li>
+            </ul>
+        </div>
+        <div class="Features">
+            <img src="https://res.cloudinary.com/dq2ki7aym/image/upload/v1620772651/New%20project/winnipeg-graphic-design_wssxfj.png"
+                class="last">
+            <h2>Customize Your Design</h2>
+            <ul class="options-list">
+                <li>Define your style</li>
+            </ul>
+        </div>
+    </section>
+   
+
+    <!-- This section contains the footer and its elements-->
+    <footer>
+        <div class="assignment">
+            <h4>Created for Hack Your Future assignment, 2021</h4>
+        </div>
+        <div class="logo">
+            <img
+                src="https://res.cloudinary.com/dq2ki7aym/image/upload/v1620772649/New%20project/chiva_white_i8shwq.png">
+        </div>
+        <div class="business-info">
+            <h2>Middenhoefstraat 11A03<br> 3022ER Rotterdam - Nederland <br>
+                +31 (0)610 40 3334</h2>
+        </div>
+        <div class="payment-methods">
+            <img
+                src="https://res.cloudinary.com/dq2ki7aym/image/upload/v1620772650/New%20project/iDEAL_Logo_bdcy5r.png">
+            <img src="https://res.cloudinary.com/dq2ki7aym/image/upload/v1620772653/New%20project/visaLogo_qcgv47.png">
+        </div>
+
+    </footer>
+    <script src="api.js"></script>
+    <script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+
+</html>
