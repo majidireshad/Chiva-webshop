@@ -10,7 +10,6 @@ const searchInput = document.getElementById("search-input");
 
 sortOptions = [
   "Sort by: Default",
-
   "Sort by: Price Low to High",
   "Sort by: Price High To Low",
   "Sort by: Rating Low to High",
@@ -65,7 +64,6 @@ function sortProducts(event) {
   }
 }
 
-// changed
 const showProducts = (productsToDisplay) => {
   productContainer.style.display = "flex";
   productContainer.innerHTML = "";
@@ -93,7 +91,7 @@ const showProducts = (productsToDisplay) => {
         descriptionElement.textContent = product.description;
         product.isShowingDescription = true;
       } else {
-        descriptionElement.style.display = "none";
+        descriptionElement.style.display = "flex";
         product.isShowingDescription = false;
       }
     });
@@ -121,9 +119,6 @@ const showProducts = (productsToDisplay) => {
     const productTitle = document.createElement("h5");
     productTitle.setAttribute("class", "card-title");
 
-    const productDescription = document.createElement("p");
-    productDescription.setAttribute("class", "card-text");
-
     const productPrice = document.createElement("h5");
     productPrice.setAttribute("class", "card-title");
 
@@ -140,7 +135,6 @@ const showProducts = (productsToDisplay) => {
     productBody.setAttribute("class", "card-body");
     productCard.appendChild(image);
     productBody.appendChild(productTitle);
-    productBody.appendChild(productDescription);
     productBody.appendChild(addToCardBtn);
     productBody.appendChild(productPrice);
     productBody.appendChild(addToCardBtn);
@@ -161,7 +155,6 @@ const eventListenerCategory = async (event) => {
   sortProducts();
   //changed
   showProducts(products);
-
 };
 
 closeCart = () => {
@@ -216,7 +209,6 @@ function refereshcart() {
     });
   }
 }
-//the cart icon can show/hide the cart side bar
 
 //the cart icon can show/hide the cart side bar
 cartBtn.addEventListener("click", closeCart);
@@ -232,7 +224,6 @@ closeCategory.addEventListener("click", function () {
   }
 });
 
-
 function addSortFunctionality() {
   const sortSelect = document.createElement("select");
 
@@ -243,7 +234,6 @@ function addSortFunctionality() {
     sortSelect.appendChild(sortOptionElement);
   });
 
-
   // Changed
   sortSelect.addEventListener("change", (event) => {
     sortProducts(event);
@@ -253,7 +243,6 @@ function addSortFunctionality() {
   sortOptionsContainer.appendChild(sortSelect);
 }
 
-//added
 function addSearchFunctionality() {
   searchButton.addEventListener("click", (event) => {
     event.preventDefault();
