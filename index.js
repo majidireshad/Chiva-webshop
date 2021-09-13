@@ -5,9 +5,12 @@ const categories = document.querySelector("#categories");
 const cartSide = document.querySelector("#CartSide");
 const closeCategory = document.querySelector("#close-category");
 const sortOptionsContainer = document.querySelector("#sort-options-container");
+const searchButton = document.getElementById("search-button");
+const searchInput = document.getElementById("search-input");
 
 sortOptions = [
-  "Sort by: default",
+  "Sort by: Default",
+
   "Sort by: Price Low to High",
   "Sort by: Price High To Low",
   "Sort by: Rating Low to High",
@@ -18,7 +21,7 @@ const cart = new Map();
 let cartOpen = false;
 let categoryOpen = false;
 let defaultSortedProducts = [];
-let sortedProducts = [];
+let products = [];
 let sortStrategy = sortOptions[0];
 // coffeeTable is one of the product category links located on section class categories on the document
 
@@ -39,42 +42,42 @@ function sortProducts(event) {
     sortStrategy = event.target.value;
   }
   if (sortStrategy === sortOptions[1]) {
-    sortedProducts.sort((product1, product2) => {
+    products.sort((product1, product2) => {
       return product1.price - product2.price;
     });
   } else if (sortStrategy === sortOptions[2]) {
-    sortedProducts.sort((product1, product2) => {
+    products.sort((product1, product2) => {
       return product2.price - product1.price;
     });
   } else if (sortStrategy === sortOptions[3]) {
-    sortedProducts.sort((product1, product2) => {
+    products.sort((product1, product2) => {
       return product1.rating.rate - product2.rating.rate;
     });
   } else if (sortStrategy === sortOptions[4]) {
-    sortedProducts.sort((product1, product2) => {
+    products.sort((product1, product2) => {
       return product2.rating.rate - product1.rating.rate;
     });
   } else {
-    sortedProducts = [];
+    products = [];
     defaultSortedProducts.forEach((product) => {
-      sortedProducts.push({ ...product });
+      products.push({ ...product });
     });
   }
-  showProducts();
 }
 
-const showProducts = () => {
+// changed
+const showProducts = (productsToDisplay) => {
   productContainer.style.display = "flex";
   productContainer.innerHTML = "";
+
   //Upon looping each element of the object, The components of a product selection gets
-  sortedProducts.forEach(function (product) {
+  productsToDisplay.forEach(function (product) {
     const image = document.createElement("img");
     image.src = `${product.image}`;
     image.setAttribute("class", "card-img-top");
     const addToCardBtn = document.createElement("a");
     addToCardBtn.innerText = "";
     addToCardBtn.setAttribute("class", "btn btn-primary");
-
     const showDescription = document.createElement("a");
     showDescription.textContent = "Show More";
     showDescription.setAttribute("class", "btn btn-primary");
@@ -103,6 +106,7 @@ const showProducts = () => {
       cartElements.id = product.id;
       cartElements.img = product.image;
       cartElements.rate = product.rating.rate;
+
       if (cart.has(cartElements.id)) {
         cart.set(cartElements.id, [
           cartElements,
@@ -117,11 +121,17 @@ const showProducts = () => {
     const productTitle = document.createElement("h5");
     productTitle.setAttribute("class", "card-title");
 
+    const productDescription = document.createElement("p");
+    productDescription.setAttribute("class", "card-text");
+
     const productPrice = document.createElement("h5");
     productPrice.setAttribute("class", "card-title");
 
     productTitle.textContent = product.title;
+
+    productDescription.textContent = product.description;
     productPrice.textContent = `$ ${product.price}`;
+
     const productCard = document.createElement("div");
     const productBody = document.createElement("div");
 
@@ -130,6 +140,8 @@ const showProducts = () => {
     productBody.setAttribute("class", "card-body");
     productCard.appendChild(image);
     productBody.appendChild(productTitle);
+    productBody.appendChild(productDescription);
+    productBody.appendChild(addToCardBtn);
     productBody.appendChild(productPrice);
     productBody.appendChild(addToCardBtn);
     productBody.appendChild(showDescription);
@@ -141,24 +153,15 @@ const showProducts = () => {
 
 const eventListenerCategory = async (event) => {
   defaultSortedProducts = [];
-  sortedProducts = [];
+  products = [];
   defaultSortedProducts = await getProductsInCategory(event.target.innerText);
   defaultSortedProducts.forEach((product) => {
-    sortedProducts.push({ ...product });
+    products.push({ ...product });
   });
   sortProducts();
-  showProducts();
-};
+  //changed
+  showProducts(products);
 
-const eventListenerAll = async (event) => {
-  defaultSortedProducts = [];
-  sortedProducts = [];
-  defaultSortedProducts = await getAllProducts(event.target.innerText);
-  defaultSortedProducts.forEach((product) => {
-    sortedProducts.push({ ...product });
-  });
-  sortProducts();
-  showProducts();
 };
 
 closeCart = () => {
@@ -228,6 +231,8 @@ closeCategory.addEventListener("click", function () {
     productContainer.style.display = "flex";
   }
 });
+
+
 function addSortFunctionality() {
   const sortSelect = document.createElement("select");
 
@@ -238,13 +243,40 @@ function addSortFunctionality() {
     sortSelect.appendChild(sortOptionElement);
   });
 
-  sortSelect.addEventListener("change", sortProducts);
+
+  // Changed
+  sortSelect.addEventListener("change", (event) => {
+    sortProducts(event);
+    showProducts(products);
+  });
+
   sortOptionsContainer.appendChild(sortSelect);
+}
+
+//added
+function addSearchFunctionality() {
+  searchButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    let searchedProducts = [];
+    let searchedValue = searchInput.value;
+    if (searchedValue.trim() === "") {
+      searchedProducts = [...defaultSortedProducts];
+    } else {
+      searchedProducts = defaultSortedProducts.filter((product) => {
+        searchedValue = searchedValue.toLowerCase().trim();
+        let title = product.title.toLowerCase();
+        return title.includes(searchedValue);
+      });
+    }
+    sortProducts();
+    showProducts(searchedProducts);
+  });
 }
 
 const main = () => {
   createCategories();
   addSortFunctionality();
+  addSearchFunctionality();
 };
 
 window.addEventListener("load", main);
