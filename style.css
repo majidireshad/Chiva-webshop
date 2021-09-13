@@ -1,0 +1,581 @@
+/*https://youtu.be/bH0A_VI95R0*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*End of Reset Code*/
+html{
+    box-sizing:border-box;
+    font-family: 'Yusei Magic', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+body{
+    background-image: linear-gradient(to bottom right, #92ffc5, #5ecbf8);
+    margin:50px;
+}
+.navbar{
+    width:100%;
+    height:70px;
+    display: flex; 
+    flex-direction: row;
+}
+.categoryButton {
+    width: 100%;
+    height:30px;
+    background-color:#16153c;
+    color:white;
+    font-size: 1.5em ;
+}
+
+
+#cart-icon img{
+    position:fixed;
+    right:50px;
+    top:15px;
+    width:30px;
+    height: 30px;
+    transition: all 0.5s;
+}
+#cart-icon img:hover{
+  transform:scale(1.1);
+  cursor:grab;
+}
+#C-logo{
+    width:50%;
+    left: 30px;
+}
+#landing{
+    display:flex;
+    flex-direction: row;
+    width:100%;
+}
+.main-cover{
+    background-image: url(https://unsplash.com/photos/tCICLJ5ktBE);
+    background-size:cover;
+    width:70%;
+    background-repeat: no-repeat;
+}
+.concept-shop{
+    color: #16153c;
+    font-size: 3.5em;
+    width: 35%;
+    min-height: 300px;
+   
+}
+
+/*
+This section contains the category links, aparted by title the links area and the area containing the closing arrow.
+*/
+#categories{
+    height:350px;
+    display:flex;
+    justify-content: center;
+    flex-direction:column;
+    align-items:center;
+    width: 100%;
+    
+}
+
+.section-title{
+    display:flex;
+    justify-content:left;
+    width:100%;
+    color:white;
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom:10px;
+    padding-left:30px;
+    
+}
+.section-links{
+    display: flex;
+    flex-direction: row;
+    width:100%;
+    height:250px;
+}
+
+ /*
+This section contain the lists of features. 
+*/
+ .Features-all{
+    width:100%;
+    min-height: 300px;
+    background-color:white;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+   
+    margin:30px 0 0 0;
+}
+
+.Features{
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    width:100%;
+    text-align:center;
+    border-left:1px solid rgb(139, 139, 139);
+    line-height: 1.8em;
+}
+.Features-all
+ h2{
+    font-size: 1.5em;
+    padding-bottom:10px;
+    margin-top:10px;
+}
+.Features:first-child{
+    border-left:none;
+}
+.Features{
+    padding:5px;
+    margin:5px;
+    text-transform: uppercase;
+}
+
+.Features img{
+    width:25%;
+}
+
+.Features .last{
+    width:15%;
+}
+/*
+This section contain the styles applied on About us paragraph and photos. 
+*/
+.About-us img{
+    width:100%;
+    
+}
+.text-container{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    font-size:1em;
+    color:rgba(0, 0, 0, 0.815);
+    line-height:25px;
+    background-color:white;
+    width:60%;
+    min-height:500px;
+    box-shadow: 0px 0px 10px 1px rgba(1, 1, 99, 0.322);
+    
+    
+}
+
+.text-container p {
+    width: 70%;
+    font-size:1em;
+    color:rgba(0, 0, 0, 0.815);
+    line-height:25px;
+    padding-left:7em;
+}
+.text-container h2{
+    
+    font-size:2.5em;
+    padding-bottom:1.5em;
+    padding-left:2.7em;
+    
+    
+}
+.photo1 .photo2{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:30%;
+    height:auto;
+}
+
+#productCategory{
+    background-size: auto;
+    background-repeat: repeat;
+    border-radius: 0 0 10px 10px;
+    width:100%;
+    display:flex;
+    flex-direction: row;
+    padding-bottom:3.5em;
+    min-height:auto;
+    color: white;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+/*
+Class close is the white arrow that shows or hides products upon loading 
+*/
+.close{
+    display:flex;
+    justify-content: center;
+}
+.close a{
+    background-image:url(https://res.cloudinary.com/dq2ki7aym/image/upload/v1620772652/New%20project/arrow_down_j0nymn.png);
+    background-size: cover;
+    width:20px;
+    height:20px;
+    cursor: grab;
+}
+
+
+#productCategory img{
+    margin:1%;
+    width:50%;
+    transition:all 1s;
+    border-radius: 15px;
+}
+
+/*
+CartSide is the div that contains added to cart products. 
+*/
+#CartSide{
+    display:flex;
+    flex-direction:column;
+    background-color: rgb(17, 1, 10);
+    right:50px;
+    position:fixed;
+    top:70px;
+    width:300px;
+    color:white;
+    min-height:auto;
+    padding:10px;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    width:30%;
+}
+#CartSide img{
+    
+    width:35%;
+}
+
+
+#CartSide a{
+    background-image: url(https://res.cloudinary.com/dq2ki7aym/image/upload/v1620772650/New%20project/garbage-clipart-proper-disposal-garbage-18_re17pi.png);
+    background-size: cover;
+    width:35px;
+    height:35px;
+    margin-bottom:20px;
+    transition: all 0.5s;
+    cursor: grab;
+
+}
+#CartSide a:hover{
+    transform:scale(1.1);
+  }
+#CartSide .title{
+   font-weight: bold;
+
+}
+
+ /*
+The div id#item contain the products that will be added to page upon clicking. 
+*/
+
+
+#item .title{
+    font-weight: bold;
+    font-size: 1.1em;
+}
+#item .price{
+    color:orange;
+    font-weight: 400;
+    font-size: 0.9em;
+}
+#item a{
+    background-image:url(https://res.cloudinary.com/dq2ki7aym/image/upload/v1620772653/New%20project/Add2Cart_aafhse.png);
+    width:25%;
+    height:45px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: all 0.5s;
+    
+}
+#item a:hover{
+  transform: scale(1.05);
+  cursor:grab ;
+}
+
+
+.About-us{
+    background-color:black;
+    display:flex;
+    background-repeat: repeat;
+    background-size: 50%;
+    background-position-y:-1500px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width:100%;
+    border-radius: 20px 20px 20px 20px;
+    margin:none;
+}
+
+footer{
+    background-color:black;
+    color:white;
+    height:300px;
+    width:100%;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content: space-evenly;
+    position:absolute;
+    left:0;
+}
+footer h4{
+    padding:20px;
+}
+footer .logo{
+    display: flex;
+    justify-content: center;
+    width:30%;
+
+}
+footer .logo img{
+    width:50%;
+}
+footer .payment-methods{
+    background-color:white;
+    border-radius: 5px;
+    width:15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height:50px;
+}
+.business-info{
+    width:30%;
+}
+.assignment{
+    width:30%;
+}
+
+footer .payment-methods img{
+    width:20%;
+    min-height:20px;
+    margin: 5%;
+}
+
+@media (max-width:1300px) {
+    body{
+        margin:20px;
+    }
+}
+
+@media (max-width: 900px){
+    body{
+        margin:30px;
+    }
+    #landing{
+        width:100%;
+        display:flex;
+        flex-direction: column;
+       
+    }
+    .concept-shop{
+        min-height:300px;
+        background-size: contain;
+        background-position-y:50px ;
+        background-position-x:0px ;
+        width:100%;
+    }
+    
+    .section-links{
+        flex-direction: column;
+        width:100;
+
+    }
+
+    
+    #coffee-table, #tv-table, #carpet{
+        width:100%;
+        justify-content: center;
+        
+        
+     }
+   #tv-table{
+        color:white;
+     }
+    .text-container{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width:100%;
+        min-height:500px;
+        margin:0px;
+        box-shadow: 0px 0px 10px 10px rgba(10, 10, 10, 0.151);
+    }
+    #productCategory{
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+    }
+    #item{
+        
+        width:90%;
+        align-items: center;
+        justify-content: center;
+    }
+   
+    .product1{
+        display:flex;
+        flex-direction:column;
+        justify-content: center;
+        align-items: center;
+        width:80%;
+        height:300px;
+    }
+    .text-container p {
+        width: 70%;
+        font-size:1em;
+        color:rgba(0, 0, 0, 0.815);
+        line-height:25px;
+        padding-left:2em;
+        padding-bottom:1em;
+        
+       
+       
+    }
+    .text-container h2{
+        font-size:2.2em;
+        padding-bottom:1em;
+        padding-left:0.1em;
+        padding-top:1em;
+
+        
+        
+    }
+    
+    .About-us{
+        width:100%;
+        align-items: center;
+        flex-direction: column;
+        display:flex;
+        background-size: cover;
+        background-position-y:100px;
+        min-height: 600px;
+    }
+    .About-us img{
+        width:100%;
+    }
+    #item a{
+        
+        width:50%;
+        
+        
+    }
+    #item a:hover{
+      transform: scale(1.05);
+      cursor:grab ;
+    }
+    .photo2{
+        width:60%;
+        height:300px;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    
+    }
+    
+        .Features-all{
+            width:100%;
+            flex-direction: column;
+            padding:20px 0 30px 0;
+            border:none;
+        }   
+        .Features-all img{
+            width:20%;
+        }   
+
+        .Features-all h2{
+
+            margin-top:10px;
+        }
+        .Features{
+            border-left:none;
+        }
+        .contact{
+            flex-direction: column;
+        }
+        footer .payment-methods {
+            display: none;
+        }
+        footer .payment-methods img{
+            display: none;
+        }
+        #C-logo{
+            width:20%;
+            
+        }
+  
+
+}
+@media (max-width: 400px){
+    body{
+        margin:10px;
+    }
+    .poster-title{
+        width:70%;
+        justify-self: end;
+        
+    
+};
+.contact{
+    flex-direction: column;
+}
+.contact-input{
+    width:100%;
+}
+.section-links{
+    flex-direction: column;
+    width: 100%;
+}
+.section-links a{
+    flex-direction: column;
+    width: 100%;
+}
+}
+
+

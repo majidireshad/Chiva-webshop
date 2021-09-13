@@ -10,6 +10,7 @@ const searchInput = document.getElementById("search-input");
 
 sortOptions = [
   "Sort by: Default",
+
   "Sort by: Price Low to High",
   "Sort by: Price High To Low",
   "Sort by: Rating Low to High",
@@ -77,6 +78,25 @@ const showProducts = (productsToDisplay) => {
     const addToCardBtn = document.createElement("a");
     addToCardBtn.innerText = "";
     addToCardBtn.setAttribute("class", "btn btn-primary");
+    const showDescription = document.createElement("a");
+    showDescription.textContent = "Show More";
+    showDescription.setAttribute("class", "btn btn-primary");
+    const productDescription = document.createElement("p");
+
+    productDescription.setAttribute("id", product.id);
+    productDescription.setAttribute("class", "card-text");
+
+    showDescription.addEventListener("click", function () {
+      const descriptionElement = document.getElementById(`${product.id}`);
+      if (!product.isShowingDescription) {
+        descriptionElement.style.display = "none";
+        descriptionElement.textContent = product.description;
+        product.isShowingDescription = true;
+      } else {
+        descriptionElement.style.display = "none";
+        product.isShowingDescription = false;
+      }
+    });
 
     addToCardBtn.addEventListener("click", function () {
       //a new object is created to contain a map of the required information
@@ -85,6 +105,8 @@ const showProducts = (productsToDisplay) => {
       cartElements.price = product.price;
       cartElements.id = product.id;
       cartElements.img = product.image;
+      cartElements.rate = product.rating.rate;
+
       if (cart.has(cartElements.id)) {
         cart.set(cartElements.id, [
           cartElements,
@@ -98,14 +120,18 @@ const showProducts = (productsToDisplay) => {
 
     const productTitle = document.createElement("h5");
     productTitle.setAttribute("class", "card-title");
+
     const productDescription = document.createElement("p");
     productDescription.setAttribute("class", "card-text");
+
     const productPrice = document.createElement("h5");
     productPrice.setAttribute("class", "card-title");
 
     productTitle.textContent = product.title;
+
     productDescription.textContent = product.description;
-    productPrice.textContent = product.price;
+    productPrice.textContent = `$ ${product.price}`;
+
     const productCard = document.createElement("div");
     const productBody = document.createElement("div");
 
@@ -116,6 +142,10 @@ const showProducts = (productsToDisplay) => {
     productBody.appendChild(productTitle);
     productBody.appendChild(productDescription);
     productBody.appendChild(addToCardBtn);
+    productBody.appendChild(productPrice);
+    productBody.appendChild(addToCardBtn);
+    productBody.appendChild(showDescription);
+    productBody.appendChild(productDescription);
     productCard.appendChild(productBody);
     productContainer.appendChild(productCard);
   });
@@ -131,6 +161,7 @@ const eventListenerCategory = async (event) => {
   sortProducts();
   //changed
   showProducts(products);
+
 };
 
 closeCart = () => {
@@ -201,6 +232,7 @@ closeCategory.addEventListener("click", function () {
   }
 });
 
+
 function addSortFunctionality() {
   const sortSelect = document.createElement("select");
 
@@ -210,6 +242,7 @@ function addSortFunctionality() {
     sortOptionElement.value = option;
     sortSelect.appendChild(sortOptionElement);
   });
+
 
   // Changed
   sortSelect.addEventListener("change", (event) => {
