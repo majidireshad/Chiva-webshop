@@ -19,6 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cute+Font&family=Londrina+Shadow&display=swap"
         rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://kit.fontawesome.com/a00e221adc.js" crossorigin="anonymous"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&family=Ubuntu&family=Yusei+Magic&display=swap"
         rel="stylesheet">
@@ -27,29 +28,27 @@
 
 <body>
     <!-- This section includes the navbar its links, logo, and cart icon-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <div class="row">
-            <div class="navbar-brand col-2">
+            <div id="logo-space" class="navbar-brand me-auto">
                 <img id="C-logo" href="#title-background"
                     src="https://res.cloudinary.com/dq2ki7aym/image/upload/v1620772649/New%20project/chiva_white_i8shwq.png">
             </div> 
-            <form class="d-flex col-8">
-                <input class="form-control me-2 w-5" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+            <form class="d-flex col-md-6 me-auto" id="search-bar">
+                <input id="search-input" class="form-control me-2 w-5" type="search" placeholder="Search" aria-label="Search">
+                <button id="search-button" class="btn btn-outline-success" type="submit">Search</button>
               </form>
             
-            <div id="cart-icon" class="col-2"><a id="btnCart"><img
+            <div id="cart-icon-space" ><a id="cart-icon"><img
                 src="https://res.cloudinary.com/dq2ki7aym/image/upload/v1620772651/New%20project/shopping-cart-svgrepo-com_a1qxsq.svg"></a>
             </div>
-          </div>
         </div>
       </nav>
     
     <!-- This section contains the main cover photo within main-cover and the page title within concept-shop
-upon adding products to cart, cart is added as a side div to this section-->
+upon adding productsToDisplay to cart, cart is added as a side div to this section-->
     <section class="container-fluid" id="landing">
-        <div id="CartSide" style="display:none"> </div>
+        <div id="cart-side" style="display:none"> </div>
         <div class="concept-shop">
             <h1 class="display-1">Coolest<br>
                 products,<br>
@@ -78,7 +77,7 @@ upon adding products to cart, cart is added as a side div to this section-->
 
     </div>
     <section>
-        <!-- upon clicking on the categories the products will be loaded within the following div-->
+        <!-- upon clicking on the categories the productsToDisplay will be loaded within the following div-->
         <div id="product-container" class= "d-flex gap-3 row">
 
         </div>
@@ -88,15 +87,15 @@ upon adding products to cart, cart is added as a side div to this section-->
 
         <div class="text-container">
             <h2>About</h2>
-            <p class="paragaraph">A fascinating collection of  </p>
+            <p class="paragaraph">A fascinating collection of accessories and fashion articles for her and him.  </p>
 
         </div>
         <div class="photo1">
-            <img src="https://res.cloudinary.com/dq2ki7aym/image/upload/v1620772649/New%20project/frank_lloyd_nkgxnb.jpg"
+            <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
                 alt="">
         </div>
         <div class="photo2">
-            <img src="https://res.cloudinary.com/dq2ki7aym/image/upload/v1620772650/New%20project/Joanna_Gaines_lqclnn.jpg"
+            <img src="https://images.unsplash.com/photo-1479064555552-3ef4979f8908?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
                 alt="">
         </div>
 
@@ -123,11 +122,11 @@ upon adding products to cart, cart is added as a side div to this section-->
             </ul>
         </div>
         <div class="Features">
-            <img src="https://res.cloudinary.com/dq2ki7aym/image/upload/v1620772651/New%20project/winnipeg-graphic-design_wssxfj.png"
+            <img src="Return-To-Sender-1170x767.jpg"
                 class="last">
-            <h2>Customize Your Design</h2>
+            <h2>Free Return</h2>
             <ul class="options-list">
-                <li>Define your style</li>
+                <li>Products that 100% meet your needs!</li>
             </ul>
         </div>
     </section>
@@ -136,15 +135,11 @@ upon adding products to cart, cart is added as a side div to this section-->
     <!-- This section contains the footer and its elements-->
     <footer>
         <div class="assignment">
-            <h4>Created for Hack Your Future assignment, 2021</h4>
+            <h4>Created for APIs Assignment, Hack Your Future</h4>
         </div>
         <div class="logo">
             <img
                 src="https://res.cloudinary.com/dq2ki7aym/image/upload/v1620772649/New%20project/chiva_white_i8shwq.png">
-        </div>
-        <div class="business-info">
-            <h2>Middenhoefstraat 11A03<br> 3022ER Rotterdam - Nederland <br>
-                +31 (0)610 40 3334</h2>
         </div>
         <div class="payment-methods">
             <img
